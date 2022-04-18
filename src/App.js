@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import BasicTabs from "./components/tabs";
+import { useState } from "react";
+import { Typography } from "@mui/material";
+
+const TypographyStyle = {
+  padding: 0,
+  display: "flex",
+};
 
 function App() {
+  const [birds, setBirds] = useState([
+    { argument: 0, value: 5 },
+    { argument: 1, value: 20 },
+    { argument: 2, value: 14 },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Typography variant="h6" gutterBottom component="div" sx={TypographyStyle}>
+        D4 Birdwatcher
+      </Typography>
+      <BasicTabs setBirds={setBirds} birds={birds} />
     </div>
   );
 }
